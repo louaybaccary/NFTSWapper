@@ -1,22 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./NFTLogo.jpg";
+import "./App.css";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import MediaCard from "./mycard";
+import WalletChoice from "./components/walletChoice";
+import Button from "@material-ui/core/Button";
 
 function App() {
+  const contentStyle = { background: "#000" };
+  const overlayStyle = { background: "rgba(0,0,0,0.5)" };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          The simpliest and safest place to Swap or trade your NFTs without Fees
+          !
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Popup
+          trigger={
+            <a className="App-link" target="_blank" rel="noopener noreferrer">
+              Connect to a wallet
+            </a>
+          }
+          position="center center"
         >
-          Learn React
-        </a>
+             <div style={{ display: "flex", flexDirection: "row" }}>
+            <div
+              style={{
+                borderWidth: 10,
+                borderColor: "white",
+              }}
+            >
+              <h5>Metamask</h5>
+              <div
+                style={{
+                  borderColor: "black",
+                  borderRadius: "12px",
+                  borderWidth: 10,
+                }}
+              >
+                <Button size="small" color="primary">
+                  Connect
+                </Button>
+              </div>
+            </div>
+            <div
+              style={{
+                borderWidth: 10,
+                borderColor: "white",
+              }}
+            >
+              <h5>WalletConnect</h5>
+              <div
+                style={{
+                  borderColor: "black",
+                  borderRadius: "12px",
+                  borderWidth: 10,
+                }}
+              >
+                <Button size="small" color="primary">
+                  Connect
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Popup>
       </header>
     </div>
   );
